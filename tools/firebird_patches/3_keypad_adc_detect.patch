@@ -1,0 +1,7 @@
+diff -r firebird-master_orig/core/misc.c firebird-master/core/misc.c
+945c945,947
+<             case 0x10: return c->value;
+---
+>             case 0x10:
+> 			if(n == 3) warn("Attempt to read keypad detection ADC value (%d)",c->value); 
+>                         return c->value;

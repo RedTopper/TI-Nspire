@@ -1,0 +1,4 @@
+patches*.[ch]
+*.bin
+test*.tns
+/out.tns

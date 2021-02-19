@@ -1,0 +1,10 @@
+01858 write ea00000d - autoboot boot2 even if running from ram
+
+194e4 write E1A00000 - nop out find matching prod field check
+
+193f4 write E1A00000 - skip signature validation splash data
+195b8 write ea00000d - skip signature validation boot2
+
+018a0 write ea000007 - never autoboot diags
+017a4 write ea000004 - never load diags even if key pressed
+017c4 write ea000010 - never download diags

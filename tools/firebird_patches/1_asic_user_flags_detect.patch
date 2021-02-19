@@ -1,0 +1,23 @@
+diff --git a/core/misc.c b/core/misc.c
+index e689a89..0be513f 100644
+--- a/core/misc.c
++++ b/core/misc.c
+@@ -500,8 +500,13 @@ uint32_t misc_read(uint32_t addr) {
+          *
+          * Anyway, bits 58-62 are the "ASIC user flags", a byte which must
+          * match the 80E0 field in an OS image. 01 = CAS, 00 = non-CAS. */
+-        case 0x28: return idreg[asic_user_flags].lo;
+-        case 0x2C: return idreg[asic_user_flags].hi;
++            
++        case 0x28: 
++            warn("Attempt to read 900A0028 (ASIC user flags low)");
++            return idreg[asic_user_flags].lo;
++        case 0x2C: 
++            warn("Attempt to read 900A002C (ASIC user flags high)");
++            return idreg[asic_user_flags].hi;
+     }
+     return bad_read_word(addr);
+ }
+-- 
+2.11.0 (Apple Git-81)
+
